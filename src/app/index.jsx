@@ -11,7 +11,7 @@ function App() {
   const [toOption, setToOption] = useState(null);
   const [amount, setAmount] = useState('');
   const [result, setResult] = useState(null);
-  const [isLoadingSymbols, setIsLoadingSymbols] = useState(true);
+  const [isLoadingSymbols, setIsLoadingSymbols] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [symbolsOptions, setSymbolsOptions] = useState([]);
   const [loadingConvert, setLoadingConvert] = useState(false);
@@ -31,9 +31,7 @@ function App() {
       const data = await res.json();
       return data.symbols;
     } catch (error) {
-      setError(error.message || 'An error occurred while fetching symbols');
-    } finally {
-      setIsLoadingSymbols(false);
+      throw new Error(error.message)
     }
   };
 
@@ -78,10 +76,22 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const symbols = await getSymbols();
-      setSymbolsOptions(transformSymbolDataToOptions(symbols));
+      setIsLoadingSymbols(true)
+      try {
+        const symbols = await getSymbols();
+        setSymbolsOptions(transformSymbolDataToOptions(symbols));
+      } catch(e) {
+        setError(e || 'Error')
+      } finally {
+          setIsLoadingSymbols(false)
+      }
+      
     })();
   }, []);
+
+  if (!symbolsOptions.length) {
+    return null
+  }
 
   return (
     <div className={styles['currency-converter-wrap']}>
