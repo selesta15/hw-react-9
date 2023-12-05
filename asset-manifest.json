@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.19ae99eb.css",
-    "main.js": "/static/js/main.0342ad68.js",
-    "index.html": "/index.html",
-    "main.19ae99eb.css.map": "/static/css/main.19ae99eb.css.map",
-    "main.0342ad68.js.map": "/static/js/main.0342ad68.js.map"
+    "main.css": "/https//selesta15.github.io/hw-react-9/static/css/main.19ae99eb.css",
+    "main.js": "/https//selesta15.github.io/hw-react-9/static/js/main.9d393a38.js",
+    "index.html": "/https//selesta15.github.io/hw-react-9/index.html",
+    "main.19ae99eb.css.map": "/https//selesta15.github.io/hw-react-9/static/css/main.19ae99eb.css.map",
+    "main.9d393a38.js.map": "/https//selesta15.github.io/hw-react-9/static/js/main.9d393a38.js.map"
   },
   "entrypoints": [
     "static/css/main.19ae99eb.css",
-    "static/js/main.0342ad68.js"
+    "static/js/main.9d393a38.js"
   ]
 }
